@@ -161,6 +161,31 @@ def confirm_play():
             return False
 
 
+def welcome():
+    print('''
+
+ /$$$$$$$  /$$                     /$$                               /$$      
+| $$__  $$| $$                    | $$                              | $$      
+| $$  \ $$| $$  /$$$$$$   /$$$$$$$| $$   /$$ /$$  /$$$$$$   /$$$$$$$| $$   /$$
+| $$$$$$$ | $$ |____  $$ /$$_____/| $$  /$$/|__/ |____  $$ /$$_____/| $$  /$$/
+| $$__  $$| $$  /$$$$$$$| $$      | $$$$$$/  /$$  /$$$$$$$| $$      | $$$$$$/ 
+| $$  \ $$| $$ /$$__  $$| $$      | $$_  $$ | $$ /$$__  $$| $$      | $$_  $$ 
+| $$$$$$$/| $$|  $$$$$$$|  $$$$$$$| $$ \  $$| $$|  $$$$$$$|  $$$$$$$| $$ \  $$
+|_______/ |__/ \_______/ \_______/|__/  \__/| $$ \_______/ \_______/|__/  \__/
+                                       /$$  | $$                              
+                                      |  $$$$$$/                              
+                                       \______/                               
+            
+Welcome to Blackjack played in the terminal. The rules are simple: try to get as
+close to 21 as possible without going over!  You can add and bet virtual funds.
+If you win, you get double the amount!
+'J', 'Q', and 'K' represent a value of 10.
+'A' represents either a value of 1 or 11.
+    ''')
+
+    input('<< Hit any key to start playing! >>')
+
+
 def play_game():
     deck = Deck()
     deck.shuffle()
@@ -171,6 +196,9 @@ def play_game():
 
     session_on = True
     while session_on:
+
+        print(f'Game starting')
+        sleep(3)
 
         dealer.reset()
         player.reset()
@@ -191,7 +219,7 @@ def play_game():
 
         print(f'You bet ${bet}.')
         sleep(1)
-        print(f'Game starting')
+        print(f'Round starting')
         sleep(1)
 
         show_cards(player, dealer)
@@ -248,4 +276,5 @@ def play_game():
 
 if __name__=='__main__':
     
+    welcome()
     play_game()
